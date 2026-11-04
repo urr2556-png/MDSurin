@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CASHBOARD | SAO SURIN</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --navy:#092957;
+  --blue:#1769e8;
+  --light:#eef4fc;
+  --gold:#e7b64b;
+  --green:#15965a;
+  --red:#df3445;
+  --text:#183451;
+}
+
+* {
+  box-sizing:border-box;
+}
+
+body {
+  margin:0;
+  font-family:'Sarabun',sans-serif;
+  background:var(--light);
+  color:var(--text);
+}
+
+header {
+  background:linear-gradient(110deg,#08234d,#15539a);
+  color:white;
+  padding:25px 5%;
+  border-bottom:5px solid var(--gold);
+}
+
+.header-content {
+  max-width:1400px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.brand h1 {
+  margin:0;
+  font-size:32px;
+}
+
+.brand p {
+  margin:5px 0;
+}
+
+.header-link {
+  background:var(--gold);
+  color:#092957;
+  padding:12px 20px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:800;
+}
+
+nav {
+  background:white;
+  box-shadow:0 3px 12px #00000012;
+  padding:12px 5%;
+}
+
+.nav-inner {
+  max-width:1400px;
+  margin:auto;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+nav a {
+  color:var(--navy);
+  text-decoration:none;
+  padding:10px 14px;
+  border-radius:8px;
+  font-weight:700;
+}
+
+nav a:hover {
+  background:#e8f1ff;
+}
+
+main {
+  max-width:1400px;
+  margin:auto;
+  padding:25px 20px;
+}
+
+.hero {
+  background:linear-gradient(120deg,#0a3978,#2476d6);
+  color:white;
+  padding:35px;
+  border-radius:18px;
+  margin-bottom:25px;
+}
+
+.hero h2 {
+  font-size:28px;
+  margin:0 0 10px;
+}
+
+.hero p {
+  color:#e4efff;
+  line-height:1.8;
+}
+
+.hero-actions {
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:20px;
+}
+
+.btn {
+  display:inline-block;
+  padding:12px 20px;
+  border-radius:9px;
+  text-decoration:none;
+  font-weight:700;
+  border:0;
+  cursor:pointer;
+}
+
+.btn-gold {
+  background:var(--gold);
+  color:#102b4e;
+}
+
+.btn-white {
+  background:white;
+  color:#1453a0;
+}
+
+.section-title {
+  font-size:22px;
+  color:var(--navy);
+  margin:30px 0 15px;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:18px;
+}
+
+.card {
+  background:white;
+  border-radius:15px;
+  padding:22px;
+  box-shadow:0 4px 15px #153b6512;
+}
+
+.card h3 {
+  margin:8px 0;
+  color:var(--navy);
+}
+
+.card p {
+  color:#667b92;
+  line-height:1.7;
+}
+
+.card .icon {
+  font-size:34px;
+}
+
+.card a {
+  display:inline-block;
+  margin-top:10px;
+  color:var(--blue);
+  text-decoration:none;
+  font-weight:700;
+}
+
+.kpi {
+  text-align:center;
+  border-top:5px solid var(--blue);
+}
+
+.kpi .number {
+  font-size:38px;
+  font-weight:800;
+  color:var(--blue);
+}
+
+.kpi.green {
+  border-color:var(--green);
+}
+
+.kpi.green .number {
+  color:var(--green);
+}
+
+.kpi.red {
+  border-color:var(--red);
+}
+
+.kpi.red .number {
+  color:var(--red);
+}
+
+.kpi.gold {
+  border-color:var(--gold);
+}
+
+.kpi.gold .number {
+  color:#c58a19;
+}
+
+.status-box {
+  margin-top:25px;
+  background:white;
+  border-radius:14px;
+  padding:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:15px;
+}
+
+.status {
+  display:inline-block;
+  padding:8px 14px;
+  background:#fff1d8;
+  color:#9b6500;
+  border-radius:30px;
+  font-weight:700;
+}
+
+footer {
+  background:#082653;
+  color:#dce9ff;
+  text-align:center;
+  padding:25px;
+  margin-top:35px;
+}
+
+@media(max-width:1000px) {
+  .grid {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media(max-width:600px) {
+  .grid {
+    grid-template-columns:1fr;
+  }
+
+  .brand h1 {
+    font-size:25px;
+  }
+
+  .hero {
+    padding:23px;
+  }
+
+  .hero h2 {
+    font-size:23px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-content">
+
+    <div class="brand">
+      <h1>📊 CASHBOARD</h1>
+      <p>ระบบติดตามงานธุรการและบริหารทั่วไป</p>
+      <p>สำนักตรวจเงินแผ่นดินจังหวัดสุรินทร์</p>
+    </div>
+
+    <a class="header-link"
+       href="https://urr2556-png.github.io/MDSurin/"
+       target="_blank"
+       rel="noopener noreferrer">
+      🏛️ เข้าสู่ระบบ MDSurin
+    </a>
+
+  </div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html">🏠 หน้าแรก</a>
+    <a href="#dashboard">📊 Dashboard</a>
+    <a href="#modules">📁 ระบบงานธุรการ</a>
+    <a href="#integration">🔗 เชื่อมต่อข้อมูล</a>
+    <a href="https://urr2556-png.github.io/MDSurin/"
+       target="_blank"
+       rel="noopener noreferrer">
+       🌐 MDSurin
+    </a>
+  </div>
+</nav>
+
+<main>
+
+<section class="hero">
+
+  <h2>ระบบบริหารและติดตามงานธุรการอัจฉริยะ</h2>
+
+  <p>
+    CASHBOARD เป็นศูนย์กลางติดตามงานธุรการและบริหารทั่วไป
+    ของสำนักตรวจเงินแผ่นดินจังหวัดสุรินทร์
+    รองรับการเชื่อมโยงข้อมูลจาก Google Sheets หลายไฟล์
+    หลายชีต เพื่อแสดงผลการดำเนินงานและสนับสนุนการตัดสินใจ
+    ของผู้บริหาร
+  </p>
+
+  <div class="hero-actions">
+
+    <a href="#dashboard" class="btn btn-gold">
+      📊 ดูภาพรวมการดำเนินงาน
+    </a>
+
+    <a href="https://urr2556-png.github.io/MDSurin/"
+       class="btn btn-white"
+       target="_blank"
+       rel="noopener noreferrer">
+      🏛️ เปิด MDSurin
+    </a>
+
+  </div>
+
+</section>
+
+<section id="dashboard">
+
+  <h2 class="section-title">
+    📊 Dashboard ภาพรวมการดำเนินงาน
+  </h2>
+
+  <div class="grid">
+
+    <div class="card kpi">
+      <div class="icon">📋</div>
+      <h3>งานทั้งหมด</h3>
+      <div class="number" id="totalTasks">—</div>
+      <p>รายการงานในระบบ</p>
+    </div>
+
+    <div class="card kpi green">
+      <div class="icon">✅</div>
+      <h3>งานแล้วเสร็จ</h3>
+      <div class="number" id="completedTasks">—</div>
+      <p>ดำเนินการสำเร็จ</p>
+    </div>
+
+    <div class="card kpi red">
+      <div class="icon">🚨</div>
+      <h3>งานเกินกำหนด</h3>
+      <div class="number" id="overdueTasks">—</div>
+      <p>ต้องติดตามเร่งรัด</p>
+    </div>
+
+    <div class="card kpi gold">
+      <div class="icon">📈</div>
+      <h3>ความสำเร็จ</h3>
+      <div class="number" id="successRate">—</div>
+      <p>ร้อยละของงานทั้งหมด</p>
+    </div>
+
+  </div>
+
+</section>
+
+<section id="modules">
+
+  <h2 class="section-title">
+    📁 ระบบงานธุรการและบริหารทั่วไป
+  </h2>
+
+  <div class="grid" id="moduleGrid"></div>
+
+</section>
+
+<section id="integration">
+
+  <h2 class="section-title">
+    🔗 ระบบเชื่อมโยงข้อมูล
+  </h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="icon">📗</div>
+      <h3>Google Sheets</h3>
+      <p>
+        รองรับการเชื่อมต่อข้อมูลจากหลายไฟล์
+        และหลายชีตผ่าน Backend API
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">⚙️</div>
+      <h3>Google Apps Script</h3>
+      <p>
+        ประมวลผลและรวบรวมข้อมูลจากแหล่งข้อมูล
+        ที่ได้รับอนุญาต
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🌐</div>
+      <h3>GitHub Pages</h3>
+      <p>
+        เผยแพร่เว็บไซต์ CASHBOARD
+        และแสดงข้อมูลผ่านระบบ API
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🏛️</div>
+      <h3>MDSurin</h3>
+      <p>
+        เชื่อมโยงการนำทางไปยังเว็บไซต์ MDSurin
+        เพื่อใช้งานระบบร่วมกัน
+      </p>
+      <a href="https://urr2556-png.github.io/MDSurin/"
+         target="_blank"
+         rel="noopener noreferrer">
+         เปิดเว็บไซต์ →
+      </a>
+    </div>
+
+  </div>
+
+</section>
+
+<div class="status-box">
+
+  <div>
+    <strong>สถานะการเชื่อมต่อข้อมูล</strong>
+    <p id="lastUpdate">ยังไม่มีข้อมูลจาก API</p>
+  </div>
+
+  <span class="status" id="apiStatus">
+    🟠 รอเชื่อมต่อ Google Sheets
+  </span>
+
+</div>
+
+</main>
+
+<footer>
+  <strong>CASHBOARD | SAO SURIN</strong>
+  <p>สำนักตรวจเงินแผ่นดินจังหวัดสุรินทร์</p>
+  <p>ระบบติดตามงานธุรการและบริหารทั่วไป</p>
+</footer>
+
+<script>
+
+/* =====================================
+   CONFIGURATION
+===================================== */
+
+const CONFIG = {
+  apiUrl: "",
+  refreshInterval: 30000
+};
+
+/* =====================================
+   MODULES
+===================================== */
+
+const modules = [
+  ["📋","ทะเบียนงาน","tasks.html"],
+  ["📁","งานสารบรรณ","documents.html"],
+  ["💰","งานการเงิน","finance.html"],
+  ["🛒","งานพัสดุ","procurement.html"],
+  ["👥","งานบุคลากร","personnel.html"],
+  ["🗓️","งานประชุม","meetings.html"],
+  ["🏢","ครุภัณฑ์และทรัพย์สิน","assets.html"],
+  ["🔧","งานอาคารสถานที่","facilities.html"],
+  ["🤝","งานตาม MOU","mou.html"],
+  ["📅","ปฏิทินงาน","calendar.html"],
+  ["📈","รายงานและสถิติ","reports.html"],
+  ["🟢","ศูนย์ข้อมูล Google Sheets","data-hub.html"]
+];
+
+function renderModules() {
+
+  const grid = document.getElementById("moduleGrid");
+
+  modules.forEach(module => {
+
+    const card = document.createElement("div");
+    card.className = "card";
+
+    const icon = document.createElement("div");
+    icon.className = "icon";
+    icon.textContent = module[0];
+
+    const title = document.createElement("h3");
+    title.textContent = module[1];
+
+    const link = document.createElement("a");
+    link.href = module[2];
+    link.textContent = "เข้าสู่ระบบ →";
+
+    card.appendChild(icon);
+    card.appendChild(title);
+    card.appendChild(link);
+
+    grid.appendChild(card);
+
+  });
+
+}
+
+/* =====================================
+   DASHBOARD API
+===================================== */
+
+async function loadDashboard() {
+
+  const status = document.getElementById("apiStatus");
+
+  if (!CONFIG.apiUrl) {
+    status.textContent = "🟠 รอเชื่อมต่อ Google Sheets";
+    return;
+  }
+
+  try {
+
+    status.textContent = "🔄 กำลังโหลดข้อมูล";
+
+    const response = await fetch(CONFIG.apiUrl, {
+      cache: "no-store"
+    });
+
+    if (!response.ok) {
+      throw new Error("API HTTP " + response.status);
+    }
+
+    const data = await response.json();
+
+    if (!data.summary) {
+      throw new Error("ไม่พบข้อมูล summary");
+    }
+
+    const summary = data.summary;
+
+    const total = Number(summary.total) || 0;
+    const completed = Number(summary.completed) || 0;
+    const overdue = Number(summary.overdue) || 0;
+
+    const rate = total > 0
+      ? (completed / total * 100).toFixed(1)
+      : "0.0";
+
+    document.getElementById("totalTasks").textContent =
+      total.toLocaleString("th-TH");
+
+    document.getElementById("completedTasks").textContent =
+      completed.toLocaleString("th-TH");
+
+    document.getElementById("overdueTasks").textContent =
+      overdue.toLocaleString("th-TH");
+
+    document.getElementById("successRate").textContent =
+      rate + "%";
+
+    status.textContent = "🟢 เชื่อมต่อข้อมูลสำเร็จ";
+    status.style.background = "#dff8e9";
+    status.style.color = "#087a3c";
+
+    document.getElementById("lastUpdate").textContent =
+      "อัปเดตล่าสุด: " +
+      new Date().toLocaleString("th-TH");
+
+  } catch(error) {
+
+    console.error(error);
+
+    status.textContent = "🔴 เชื่อมต่อข้อมูลไม่สำเร็จ";
+    status.style.background = "#ffe3e6";
+    status.style.color = "#b91c32";
+
+  }
+
+}
+
+/* =====================================
+   START
+===================================== */
+
+renderModules();
+loadDashboard();
+
+setInterval(
+  loadDashboard,
+  CONFIG.refreshInterval
+);
+
+</script>
+
+</body>
+</html>
